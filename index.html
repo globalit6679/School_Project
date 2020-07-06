@@ -1,0 +1,138 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>20190753 WEB시험 이효원</title>
+<style>	
+	form {
+        width : 50%; 
+    } 	
+    label[for] {
+        display : inline-block ;
+        height : 30px;
+    }  	 
+    input[type=text], input[type=password] {
+        width : 100%;
+        height : 40px;
+        border : 1px solid #8C8C8C;
+        box-sizing: border-box;
+        padding : 5px;
+    }	
+    input[type=submit], input[type=reset]{
+        background-color : #73AD21;
+        width : 45%;
+        border : none;
+        padding : 10px;
+        margin : 5px;
+        color : white ;
+    }
+    textarea {
+        width : 100%;
+        height : 80px;
+    }	
+	#txt_year, #sel_mon, #txt_day {
+		width : 30%;
+		height : 40px;
+		vertical-align: middle;
+	}	
+	#sel_mon {
+		margin-left : 10px;
+		margin-right : 10px;
+	}	
+	.box1 {
+		border-radius: 10px;
+		border: 2px solid rgb(88, 184, 201);
+        background-color : rgb(88, 184, 201);
+		padding: 10px; 
+		margin : 10px;
+		width: 400px;
+		height: 20px; 
+		color : white;
+		text-align : center;
+	}
+	.box2 {		 
+		padding: 10px; 
+		margin : 10px;
+		width: 400px;  
+	} 	
+	.box3 {
+		border : 1px solid rgb(110, 110, 110);
+		width : 100%;
+		height : 40px;
+		display : inline-block;
+		padding : 5px 40px;
+		box-sizing : border-box;
+	} 
+</style>
+</head>
+<body>
+<form name="txt_name" method="get" action="05.php">
+	<div class="box1">
+		개인 신청 자료(20190753 이효원)
+	</div>
+	<div class="box2">
+		<p>
+		<label for="txt_name">이름</label><br/>
+		<input type="text" name="txt_name" id="txt_name" placeholder="이름 입력(ex.홍길동)"> 
+		</p>
+		<p>
+		<label for="txt_mail">이메일</label><br/>
+		<input type="text" name="txt_name" id="txt_mail" placeholder="이메일 입력(ex.kk2@gmail.com)"> 
+		</p>
+		<p>
+		<label for="txt_birth">생년월일</label><br/>
+		<input type="text" name="txt_year" id="txt_year" placeholder="년">
+		<select name="sel_mon" id="sel_mon">
+			<option value="">월</option>
+			<option value="1"selected>1월</option>
+			<option value="2">2월</option>
+			<option value="3">3월</option>
+			<option value="4">4월</option>
+			<option value="5">5월</option>
+			<option value="6">6월</option>
+			<option value="7">7월</option>
+			<option value="8">8월</option>
+			<option value="9">9월</option>
+			<option value="10">10월</option>
+			<option value="11">11월</option>
+			<option value="12">12월</option>			
+		</select>
+		<input type="text" name="txt_day" id="txt_day" placeholder="일">
+		</p>
+		<p>
+		<label>성별</label>
+		<span class="box3">
+		<label for="r_gender_man">남</label> 
+		<input type="radio" name="r_gender" id="r_gender_man" value="남"> 
+		<label for="r_gender_woman">여</label>
+		<input type="radio" name="r_gender" id="r_gender_woman" value="여" checked> 
+		</span>
+		</p>
+		<p>
+		<label>관심분야</label>
+		<span class="box3">
+		<label for="ck_c">C</label> 
+		<input type="checkbox" name="ck_c" id="ck_c" value="C"> 
+		<label for="ck_python">Python</label> 
+		<input type="checkbox" name="ck_python" id="ck_python" value="python"> 
+		<label for="ck_java">JAVA</label> 
+		<input type="checkbox" name="ck_java" id="ck_java"  value="java">
+		<label for="ck_app">HTML/CSS</label> 
+		<input type="checkbox" name="ck_app" id="ck_app">
+		</span>
+		</p>
+		<p>
+		<label for="txt_content">기타</label><br/>
+		<textarea name="txt_content" id="txt_content">
+		</textarea>
+		</p>
+		<p>
+		<input type="submit" value="확인">
+		<input type="reset" value="취소">
+		</p>
+	</div>
+	
+	 
+</form>
+</body>
+</html>
