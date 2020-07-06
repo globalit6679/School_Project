@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            설문양식
+        </title>
+        <style>	
+            form {
+                width : 50%; 
+            } 	
+            label[for] {
+                display : inline-block ;
+                height : 30px;
+            }  	 
+            input[type=text], input[type=password] {
+                width : 100%;
+                height : 40px;
+                border : 1px solid #8C8C8C;
+                box-sizing: border-box;
+                padding : 5px;
+            }	
+            input[type=submit], input[type=reset]{
+                background-color : #73AD21;
+                width : 45%;
+                border : none;
+                padding : 10px;
+                margin : 5px;
+                color : white ;
+            }
+            textarea {
+                width : 100%;
+                height : 80px;
+            }	
+            #txt_year, #sel_mon, #txt_day {
+                width : 30%;
+                height : 40px;
+            }	
+            #sel_mon {
+                margin-left : 10px;
+                margin-right : 10px;
+            }
+            .box1, .box2{
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+            }	
+            .box1 {
+                border-radius: 10px;
+                border: 2px solid rgb(88, 184, 201);
+                background-color : rgb(88, 184, 201);
+                height: 20px; 
+                color : white;
+                text-align : center;
+            }	
+            
+            .box2 {		 
+                padding: 10px; 
+                margin : 10px;
+                width: 400px;  
+            } 
+            .box3 {
+                border : 1px solid rgb(110, 110, 110);
+                width : 100%;
+                height : 40px;
+                display : inline-block;
+                padding : 5px 40px;
+                box-sizing : border-box;
+            } 
+            p > label{
+                display: inline-block;
+                background-color: aliceblue;
+                padding: 5px;
+                width: 100%;
+                height: 25px;
+                font-size: 14px;
+            }
+            span{
+                display: inline-block;
+                width: 45%;
+                padding: 20px;
+                font-size: 12px;
+                box-sizing: border-box;
+                text-align: center;
+            }
+            img{
+                width: 100%;
+
+            }
+        </style>
+    </head>
+        <body>
+            <form name='myform' method="GET" action="05.php">
+                <div class='box1'>
+                    설 문 조 사
+                </div>
+                <div class='box2'>
+                    <p>
+                        <label for='txt_name'>성명</label>
+                        <input type='text' name='txt_name' id='txt_name' placeholder="이름 입력">
+                    </p>
+                    <p>
+                        <label for='txt_password'>비밀번호</label>
+                        <input type='password' name='txt_password' id='txt_password' placeholder="비밀번호 입력">
+                    </p>
+                    <p>
+                        <label>좋아하는 과일을 선택하세요.</label>
+                    </p>
+                    <span>
+                        <label>
+                            <input type="radio" checked name='item1' value="참외">
+                            <img src="./img2/img1.jpg">
+                        </label>
+                    </span>
+                    <span>
+                        <label>
+                            <input type="radio" name='item1' value="샤인머스켓포도">
+                            <img src="./img2/img2.jpg">
+                        </label>
+                    </span>
+                    <span>
+                        <label>
+                            <input type="radio" name='item1' value="방울토마토">
+                            <img src="./img2/img3.png">
+                        </label>
+                    </span>
+                    <span>
+                        <label>
+                            <input type="radio" name='item1' value="키위">
+                            <img src="./img2/img4.jpg">
+                        </label>
+                    </span>
+                    <p>
+                        <input type='submit' value="결과보기">
+                        <input type="reset" value="취소">
+                    </p>
+                </div>
+            </form>
+        </body>
+    
+</html>

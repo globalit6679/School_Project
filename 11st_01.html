@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>검색 엔진 선택</title>
+        <style>
+            .box1{
+                border-radius: 10px;
+                border: 2px solid green;
+                background-color: green;
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                height: 20px;
+                color: white;
+                text-align: center;
+            }
+            .box2{
+                width: 400px;
+                height: 120px;
+                margin: 10px;
+                padding-top: 20px;
+                text-align: center;
+                border: 2px solid gray;
+                box-sizing: border-box;
+                float: left;
+            }
+            img{
+                width: 200px;
+                height: 50px;
+            }
+            form{
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                height: 20px;
+                text-align: center;
+                clear: both;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#img1").hide();
+                $("#sel1").change(function(){
+                    if($(this).val()==""){
+                        alert("검색 엔진을 선택하세요");
+                        return;
+                    }
+                    var loc="./img/"+$(this).val() + ".png";
+                    $("#img1").attr("src",loc);
+                    $("#img1").show();
+                    var url = "";
+                    switch($(this).val()){
+                        case "google":
+                            url = "http://www.google.com";
+                            break;
+                        case "naver":
+                            url = "http://www.naver.com";
+                            break;
+                        case "daum":
+                            url = "http://www.daum.net";
+                            break;
+                        default:
+                            url = "#";
+                            break;
+                    }
+                    $("#a1").attr("href",url);
+                    $("#p1").html("<a href='"+url+"'>"+url+"</a>");
+                })
+            })
+        </script>
+    </head>
+    <body>
+        <div class="box1">
+            jQuery
+        </div>
+        <div class="box2" id="d1">
+            <a href="#" id="a1"><img id="img1"></a>
+            <p id="p1"></p>
+
+        </div>
+        <form name="form1">
+            <select name="sel1" id="sel1">
+                <option value="">검색엔진</option>
+                <option value="google">구글</option>
+                <option value="naver">네이버</option>
+                <option value="daum">다음</option>
+            </select>
+        </form>
+    </body>
+</html>

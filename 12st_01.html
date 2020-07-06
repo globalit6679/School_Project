@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>주사위게임</title>
+        <style>
+            .box1{
+                border-radius: 10px;
+                border: 2px solid green;
+                background-color: green;
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                height: 20px;
+                color: white;
+                text-align: center;
+            }
+            .box2{
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                text-align: center;
+            }
+            #msgimg{
+                width: 400px;
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid rgb(11, 177, 11);
+                text-align: center;
+            }
+            #msg{
+                width: 400px;
+                height: 40px;
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid rgb(11, 177, 11);
+                font-size: 14px;
+                color: red;
+                text-align: center;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            var total = 0;
+            var wincount = 0;
+            $(document).ready(function(){
+                $("p>img").click(function(){
+                    var nsrc = $(this).attr("src");
+                    nsrc = nsrc.replace("./img/","");
+                    nsrc = nsrc.charAt(0);
+                    var n = parseInt(nsrc);
+
+                    total++;
+                    var num = Math.floor(Math.random()*6)+1;
+
+                    $("#img1").attr("src","./img/"+n+".png");
+                    $("#img2").attr("src","./img/c"+num+".png");
+
+                    var str="";
+                    if(n==num){
+                        wincount++;
+                        str=str+"맞췄습니다"+"<br>";
+
+                    }
+                    else{
+                        str=str+"틀렸습니다"+"<br>";
+
+                    }
+                    str = str+"전체횟수 : "+total +",";
+                    str = str + "맞춘횟수 : "+wincount + "";
+                    
+                    $("#msg").html(str);
+
+                });
+
+                $("input[type=button]").click(function(){
+                    total = 0;
+                    wincount = 0;
+
+                    $("#img1").attr("src","./img/q.png")
+                    $("#img2").attr("src","./img/q.png")
+                    $("#msg").text("");
+                })
+            });
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <div class="box1">
+                주사위게임
+            </div>
+            <div class="box2">
+                <p>
+                    <img src="./img/1.png">
+                    <img src="./img/2.png">
+                    <img src="./img/3.png">
+                    
+                </p>
+                <p>
+                    
+                    <img src="./img/4.png">
+                    <img src="./img/5.png">
+                    <img src="./img/6.png">
+                    
+                </p>
+                <p>
+                    <input type="button" value="다시하기">
+
+                </p>
+
+
+            </div>
+            <div id="msgimg">
+                <img src="./img/q.png" id="img1">
+                <img src="./img/vs.png">
+                <img src="./img/q.png" id="img2">
+
+            </div>
+            <div id="msg"></div>
+        </form>
+    </body>
+</html>

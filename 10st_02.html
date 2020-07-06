@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>구구단 학습기</title>
+        <style>
+            .box1{
+                border-radius: 10px;
+                border: 2px solid black;
+                padding: 10px;
+                background-color: green;
+                margin: 10px;
+                width: 400px;
+                height: 20px;
+                color: white;
+                text-align: center;
+            }
+            .box2{
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                text-align: center;
+            }
+            #msg{
+                width: 400px;
+                height: 200px;
+                margin: 10px;
+                padding: 10px;
+                border: 1px solid green;
+                color: red;
+                text-align: center;
+            }
+            select, input{
+                width: 20%;
+                height: 30px;
+
+            }
+            img {
+                width: 50px;
+                height: 50px;
+            
+            }
+        </style>
+        <script>
+            // 단보기
+            function showDan(){
+                if (myform.dan.value == ""){
+                    alert("단을 선택하세요")
+                    myform.dan.focus()
+                    return
+                }
+                var dan = parseInt( myform.dan.value);
+                var str = ''
+                var i;
+                for (i = 1; i <10; i++){
+                    str += dan + " x " + i + " = " + dan *i + "<br>";
+                }
+                /* while문으로
+                i = 1;
+                while (i < 10){
+                    str += dan + " x " + i + " = " + dan *i + "<br>";
+                    i++;
+                }
+                */
+                document.getElementById("msg").innerHTML = str;
+            }
+            function showClear() {
+                document.getElementById("msg").innerHTML = "";
+                myform.reset() // 단 선택 reset
+            }
+            function showRandom(){
+                var dan = Math.floor(Math.random()*8) + 2; // 0~1 사이의 실수를 무작위로 반환 (2~9까지의 난수 발생)
+                // Math.floor : 실수를 가장 가까운 정수로 반환
+                var i = Math.floor(Math.random()*8) + 1; // 1~9 까지의 난수 발생
+                var ans = dan * i;
+                var ans10 = Math.floor(ans / 10); //10의 자리
+                var ans1 = ans % 10; //1의 자리
+
+                var str = "<img src = './img/10주차img/" + dan + ".png'>" ;
+                str += "<img src = './img/10주차img/x.png'>";
+                str += "<img src = './img/10주차img/" + i + ".png'>" ;
+                str += "<img src = './img/10주차img/equal.png'>";
+
+                if (ans10 == 0)
+                    str += "<img src = './img/10주차img/blank.png'>";
+                else
+                    str += "<img src = './img/10주차img/" + ans10 + ".png'>" ;
+                str += "<img src = './img/10주차img/" + ans1 + ".png'>" ;
+
+
+                
+                document.getElementById("msg").innerHTML = str;
+            }
+        </script>
+    </head>
+    <body>
+        <form name="myform">
+            <div class="box1">
+                구구단 학습기
+            </div>
+            <div class="box2">
+                <select name="dan">
+                    <option value="">단선택</option>
+                    <option value="2">2단</option>
+                    <option value="3">3단</option>
+                    <option value="4">4단</option>
+                    <option value="5">5단</option>
+                    <option value="6">6단</option>
+                    <option value="7">7단</option>
+                    <option value="8">8단</option>
+                    <option value="9">9단</option>
+                
+                </select>
+                <input type="button" value="단보기" onclick="showDan();">
+                <input type="button" value="랜덤보기" onclick="showRandom();">
+                <input type="button" value="지우기" onclick="showClear();">
+
+            </div>
+            <div id="msg"></div>
+
+        </form>
+    </body>
+</html>

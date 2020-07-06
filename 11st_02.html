@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>랜덤카드 구분하기</title>
+        <style>
+            .box1{
+                border-radius: 10px;
+                border: 2px solid green;
+                background-color: green;
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                height: 20px;
+                color: white;
+                text-align: center;
+            }
+            #msg{
+                border: 2px solid gray;
+                width: 400px;
+                height: 150px;
+                margin: 10px;
+                padding: 10px;
+                text-align: center;
+            }
+            form{
+                width: 400px;
+                text-align: center;
+            }
+            input[type="button"]{
+                width: 150px;
+            }
+            .card{
+                width: 45px;
+                height: 50px;
+                font-size: 30px;
+                text-align: center;
+                border: 1px solid green;
+                border-radius: 5px;
+                float: left;
+                margin: 5px;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $("#btn1").click(function(){
+                    var i;
+                    for(i=1;i<15;i++){
+                        var n = Math.floor(Math.random()*99)+1;
+                        $("#c" + i).text(n);
+                        $("#c" + i).css("background-color","white");
+
+                    }
+                });
+                $("#btn2").click(function(){
+                    var i;
+                    for(i=1;i<15;i++){
+                        $("#c" + i).text("");
+                        $("#c" + i).css("background-color","white");
+
+                    }
+                });
+                $(".card").click(function(){
+                    if($(this).text() % 2 == 0){
+                        $(this).css({"background-color":"blue","color":"white"});
+                        
+                    }
+                    else{
+                        $(this).css({"background-color":"red","color":"white"});
+
+
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div class="box1">랜덤카드 구분하기</div>
+        <div id="msg">
+            <div class="card" id="c1"></div>
+            <div class="card" id="c2"></div>
+            <div class="card" id="c3"></div>
+            <div class="card" id="c4"></div>
+            <div class="card" id="c5"></div>
+            <div class="card" id="c6"></div>
+            <div class="card" id="c7"></div>
+            <div class="card" id="c8"></div>
+            <div class="card" id="c9"></div>
+            <div class="card" id="c10"></div>
+            <div class="card" id="c11"></div>
+            <div class="card" id="c12"></div>
+            <div class="card" id="c13"></div>
+            <div class="card" id="c14"></div>
+
+        </div>
+        <form name="myform">
+            <input type="button" value="번호생성" id="btn1">
+            <input type="button" value="번호지우기" id="btn2">
+        </form>
+    </body>
+</html>

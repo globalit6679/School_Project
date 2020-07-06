@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>간단한 계산기 upgrade ver.</title>
+        <style>
+            .box1{
+                border-radius:  10px;
+                border: 2px solid green;
+                background-color: green;
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                height: 20px;
+                color: white;
+                text-align: center;
+            }
+            #msg{
+                width: 97%; /*#msg가 속해있는 상위 영역인 box2의 너비의 97%*/
+                height: 40px;
+                border: 1px solid white;
+                text-align: right;
+            }
+            .box2{
+                border: 2px solid green;
+                padding: 10px;
+                margin: 10px;
+                width: 400px;
+                text-align: left;
+            }
+            form {
+                padding-bottom: 20px;
+                text-align: center;
+            }
+            input {
+                width: 40px;
+                height: 40px;
+            }
+        </style>
+        <script>
+            // 지우기 함수
+            function evalClear() {
+                document.getElementById("msg").innerHTML= '';
+
+            }
+            // 수식 만들기
+            function evalMake(x) {
+                var str = document.getElementById("msg").innerHTML;
+                str = str + x;
+                document.getElementById("msg").innerHTML = str;
+            }
+            // 마지막 글자 지우기
+            function evalClearLast() {
+                var str = document.getElementById("msg").innerHTML;
+                str = str.substr(0,str.length-1) // 두 개의 값을 전달받음(첫 번째 인덱스, 마지막 인덱스)
+                document.getElementById("msg").innerHTML = str;
+
+            }
+            // 수식 계산
+            function evalDo() {
+                //eval 메서드 : 수식을 적으면 수식의 결과를 return
+                var str = document.getElementById("msg").innerHTML;
+                str = eval(str);
+                document.getElementById("msg").innerHTML = str;
+            }
+        </script>
+    </head>
+    <body>
+        <div class = 'box1'>
+            자바스크립트 계산기
+        </div>
+        <div class = 'box2'>
+            <div id = 'msg'></div>
+            <form name = 'myform'>
+                <p>
+                    <input type = 'button' value="CE" onclick="evalClearLast();">
+                    <input type="button" value="C" onclick="evalClear();">
+                    <input type="button" value="." onclick="evalMake('.');">
+                    <input type="button" value="/" onclick="evalClear('/');">
+                    
+                </p>
+                <p>
+                    <input type = 'button' value="7" onclick="evalMake('7');">
+                    <input type="button" value="8" onclick="evalMake('8');">
+                    <input type="button" value="9" onclick="evalMake('9');">
+                    <input type="button" value="*" onclick="evalMake('*');">
+                    
+                </p>
+                <p>
+                    <input type = 'button' value="4" onclick="evalMake('4');">
+                    <input type="button" value="5" onclick="evalMake('5');">
+                    <input type="button" value="6" onclick="evalMake('6');">
+                    <input type="button" value="-" onclick="evalMake('-');">
+                    
+                </p>
+                <p>
+                    <input type = 'button' value="1" onclick="evalMake('1');">
+                    <input type="button" value="2" onclick="evalMake('2');">
+                    <input type="button" value="3" onclick="evalMake('3');">
+                    <input type="button" value="+" onclick="evalMake('+');">
+                
+                </p>
+                <p>
+                    <input type = 'button' value="(" onclick="evalMake('(');">
+                    <input type="button" value=")" onclick="evalMake(')');">
+                    <input type="button" value="0" onclick="evalMake('0');">
+                    <input type="button" value="=" onclick="evalDo();">
+                    
+                </p>
+            </form>
+        </div>
+    </body>
+</html>
