@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>HTML/CSS 실기시험</title>
+<style>	
+    * {
+        margin: 5px;
+    }
+	form {
+        width : 30%;
+    } 	
+    label {
+        width: 20%;
+        display: inline-block;
+    }  	 
+    input[type="text"], input[type="password"] {
+        width : 45%;
+    }
+    input[type="submit"], input[type="reset"]{
+        width: 20%;
+    }
+</style>
+<script>
+  function pwd(){
+    alert("비밀번호를 다시 설정해주세요");
+    var i = 0;
+    
+</script>
+</head>
+<body>
+<form method="post" action="info.php">
+	<p>
+	<label for="txt">1. 이름</label>
+    <input type="text" name="txt_name" id="txt" placeholder="이름"> 
+	</p>
+	<p>
+    <label for="txt">2. 이메일</label>
+    <input type="text" name="txt_email" id="txt" placeholder="id@naver.com"> 
+    </p>
+    <p>
+    <label for="password">3. 비밀번호</label>
+    <input type="password" name="password" id="password" placeholder="영문,특수기호 8자리 이상">
+	</p>
+    <p>
+	<input type="submit" value="제출">
+	<input type="reset" value="초기화">
+	</p>
+</form>
+</body>
+</html>
