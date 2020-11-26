@@ -23,7 +23,7 @@ void SORT(quick* arr, int m, int n)
         int j = n;
         while (i <= j)
         {
-            while (i < n && arr[i].school_num <= arr[key].school_num)
+            while (i <= n && arr[i].school_num <= arr[key].school_num)
                 i++;
             while (j > m && arr[j].school_num >= arr[key].school_num)
                 j--;
@@ -32,8 +32,8 @@ void SORT(quick* arr, int m, int n)
             else
                 SWAP(arr, i, j);
         }
-        SORT(arr, j + 1, n);
         SORT(arr, m, j - 1);
+        SORT(arr, j + 1, n);
     }
 }
 int main() {
@@ -41,21 +41,21 @@ int main() {
     int i = 0;
     for (i = 0; i < 50; i++)
     {
-        printf("Student Information (ÇÐ¹ø, ÀÌ¸§, ÇÐ°ú, ÀüÈ­¹øÈ£, ¼ºº°)\n");
-        printf("ÇÐ¹ø ÀÔ·Â : ");
+        printf("Student Information (í•™ë²ˆ, ì´ë¦„, í•™ê³¼, ì „í™”ë²ˆí˜¸, ì„±ë³„)\n");
+        printf("í•™ë²ˆ ìž…ë ¥ : ");
         scanf_s("%d", &s[i].school_num);
-        printf("ÀÌ¸§ ÀÔ·Â : ");
+        printf("ì´ë¦„ ìž…ë ¥ : ");
         scanf("%s", s[i].name);
-        printf("ÇÐ°ú ÀÔ·Â : ");
+        printf("í•™ê³¼ ìž…ë ¥ : ");
         scanf("%s", s[i].major);
-        printf("ÀüÈ­¹øÈ£ ÀÔ·Â : ");
+        printf("ì „í™”ë²ˆí˜¸ ìž…ë ¥ : ");
         scanf("%s", s[i].phone_num);
         getchar();
-        printf("¼ºº° ÀÔ·Â(³²/¿©) : ");
-        scanf("%s", &s[i].gender);
+        printf("ì„±ë³„ ìž…ë ¥(ë‚¨/ì—¬) : ");
+        scanf("%s", s[i].gender);
     }
     SORT(s, 0, 49);
-    printf("\n== Á¤·Ä ÈÄ ==\n");
+    printf("\n== ì •ë ¬ í›„ ==\n");
     for (i = 0; i < 50; i++)
         printf("%d\t%s\t%s\t%s\t%s\n", s[i].school_num, s[i].name, s[i].major, s[i].phone_num, s[i].gender);
     printf("\n");
