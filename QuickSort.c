@@ -3,8 +3,8 @@
 #include<stdlib.h>
 
 typedef struct quick {
-    int school_num;
-    char name[8], major[22], gender[3], phone_num[12];
+    int school_num, phone_num[11];
+    char name[8], major[22], gender[3];
 }quick;
 
 void SWAP(quick* arr, int a, int b)
