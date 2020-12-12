@@ -37,27 +37,27 @@ void SORT(quick* arr, int m, int n)
     }
 }
 int main() {
-    quick s[50];
+    FILE* fp, * fp2;
+    fp = fopen("학생 데이터.txt", "r+");
+    fp2 = fopen("정렬 후 데이터.txt", "w+");
     int i = 0;
-    for (i = 0; i < 50; i++)
-    {
-        printf("Student Information (학번, 이름, 학과, 전화번호, 성별)\n");
-        printf("학번 입력 : ");
-        scanf_s("%d", &s[i].school_num);
-        printf("이름 입력 : ");
-        scanf("%s", s[i].name);
-        printf("학과 입력 : ");
-        scanf("%s", s[i].major);
-        printf("전화번호 입력 : ");
-        scanf("%s", s[i].phone_num);
-        getchar();
-        printf("성별 입력(남/여) : ");
-        scanf("%s", s[i].gender);
+    quick sArr[50];
+    printf("== 정렬 전 ==\n");
+    while (!feof(fp)) {
+        fscanf(fp, "%d %s %s %s %s",&sArr[i].school_num,sArr[i].name,sArr[i].major,sArr[i].phone_num,sArr[i].gender);
+        printf("%d\t%s\t%s\t%s\t%s\n", sArr[i].school_num, sArr[i].name, sArr[i].major, sArr[i].phone_num, sArr[i].gender);
+        i++;
     }
-    SORT(s, 0, 49);
+    SORT(sArr, 0, 49);
+
     printf("\n== 정렬 후 ==\n");
-    for (i = 0; i < 50; i++)
-        printf("%d\t%s\t%s\t%s\t%s\n", s[i].school_num, s[i].name, s[i].major, s[i].phone_num, s[i].gender);
+    for (i = 0; i < 50; i++) {
+        printf("%d\t%s\t%s\t%s\t%s\n", sArr[i].school_num, sArr[i].name, sArr[i].major, sArr[i].phone_num, sArr[i].gender);
+        fprintf(fp2, "%d %s %s %s %s\n", sArr[i].school_num, sArr[i].name, sArr[i].major, sArr[i].phone_num, sArr[i].gender);
+    }
     printf("\n");
+
+    fclose(fp);
+    fclose(fp2);
     return 0;
 }
